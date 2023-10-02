@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Servlet-AdmissionPage</display-name>
+   
+  <servlet>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.web.login </servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+    
+    <servlet>
+    <servlet-name>Registration</servlet-name>
+    <servlet-class>com.web.RegistrationServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>Registration</servlet-name>
+    <url-pattern>/RegistrationServlet</url-pattern> 
+</servlet-mapping>
+
+<filter>
+    <filter-name>AuthenticationFilter</filter-name>
+    <filter-class>com.web.AuthenticationFilter</filter-class>
+</filter>
+<filter-mapping>
+    <filter-name>AuthenticationFilter</filter-name>
+    <url-pattern>/login</url-pattern>
+</filter-mapping>
+
+<session-config>
+    <session-timeout>30</session-timeout> <!-- 30 minutes or your desired value -->
+</session-config>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+   
+  </welcome-file-list>
+</web-app>
